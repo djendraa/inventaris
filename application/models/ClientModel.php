@@ -9,6 +9,12 @@ class ClientModel extends CI_Model {
         return $this->db->get('client')->result();
     }
 
+    public function tambahData($data)
+    {
+        $query = $this->db->insert('client', $data);
+        return $this->db->affected_rows();
+    }
+
 }
 
 /* End of file ClientModel.php */

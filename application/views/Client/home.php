@@ -24,7 +24,6 @@
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <a class="fas fa-user-plus" href="#" > CLIENT</a>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -51,25 +50,30 @@
                           <th>Client Name</th>
                           <th>Address</th>
                           <th>Contact</th>
-                          <th colspan="2">Action</th>
+                          <th colspan="3">Action</th>
                         </tr>
                       </thead>
                       <tbody align="center">
                       <?php 
                       $no = 1;
-                      foreach ($dataClient as $d) { ?>
+                      foreach ($dataClient as $d): ?>
+                      <?php include('inc/tambah.php') ?>
                         <tr>
                           <td><?php echo $no++ ?></td>
                           <td><?php echo $d->clientname ?></td>
                           <td><?php echo $d->address ?></td>
                           <td><?php echo $d->contact ?></td>
                           <td>
-                          <a class="fas fa-edit" href="#" style="text-decoration: none;">
-                          </a>
+                            <a class="fas fa-user-plus" data-placement="top" title="Add" data-toggle="modal" data-target="#AddModal" style="text-decoration: none;"></a>
                           </td>
-                          <td><a class="fas fa-trash" href="#" style="text-decoration: none;"></a></td>
+                          <td>
+                            <a class="fas fa-edit" href="#" style="text-decoration: none;"></a>
+                          </td>
+                          <td>
+                            <a class="fas fa-trash" href="#" style="text-decoration: none;"></a>
+                          </td>
                         </tr>
-                      <?php } ?>
+                      <?php endforeach; ?>
                       </tbody>
                     </table>
                   </div>

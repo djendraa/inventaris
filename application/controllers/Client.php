@@ -24,6 +24,8 @@ public function __construct()
         $this->load->view('Template/footer');
     }
 
+
+
 }
 
 /* End of file Client.php */
