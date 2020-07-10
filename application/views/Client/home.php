@@ -57,7 +57,7 @@
                       <?php 
                       $no = 1;
                       foreach ($dataClient as $d): ?>
-                      <?php include('inc/tambah.php') ?>
+                      <?php include('inc/add.php') ?>
                         <tr>
                           <td><?php echo $no++ ?></td>
                           <td><?php echo $d->clientname ?></td>

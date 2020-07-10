@@ -10,12 +10,12 @@
          </div>
          <div class="modal-body">
    <br />
-   <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+   <form action="<?php echo base_url('Client/insertData'); ?>" method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
       <div class="item form-group">
          <label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Name <span class="required">*</span>
          </label>
          <div class="col-md-6 col-sm-6 ">
-            <input type="text" id="name" name="name" required="required" class="form-control ">
+            <input type="text" id="name" name="name" required="required" class="form-control" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))">
          </div>
       </div>
 
@@ -28,19 +28,18 @@
       </div>
 
       <div class="item form-group">
-         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Contact <span class="required">*</span>
+         <label for="contact" class="col-form-label col-md-3 col-sm-3 label-align">Contact <span class="required">*</span>
          </label>
          <div class="col-md-6 col-sm-6 ">
-            <input id="middle-name" class="form-control" type="text" name="middle-name">
+            <input id="contact" class="form-control" type="text" name="contact" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
          </div>
       </div>
 
       <div class="modal-footer"></div>
       <div class="item form-group">
          <div class="col-md-7 col-sm-7 offset-md-4">
-            <button class="btn btn-primary" type="button">Cancel</button>
-            <button class="btn btn-primary" type="reset">Reset</button>
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button class="btn btn-success" type="submit">Submit</button>
+            <button class="btn btn-primary" type="close" data-dismiss="modal">Cancel</button>
          </div>
       </div>
    </form>

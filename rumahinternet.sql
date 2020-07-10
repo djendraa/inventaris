@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2020 at 10:27 AM
+-- Generation Time: Jul 10, 2020 at 09:03 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -37,6 +37,14 @@ CREATE TABLE `client` (
   `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`id`, `clientname`, `address`, `contact`, `created_at`, `updated_at`) VALUES
+(1, 'Djendra', 'Jl. Sultan Hasanudin No. 126D RT03/02', '089643797334', '2020-07-10 13:30:33', NULL),
+(2, 'Wisnu', 'Jl. Sultan Hasanudin', '08990099099', '2020-07-10 13:30:53', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -46,7 +54,7 @@ CREATE TABLE `client` (
 CREATE TABLE `detailitem` (
   `id` bigint(20) NOT NULL,
   `detailitem` varchar(25) DEFAULT NULL,
-  `itemstatus_id` bigint(20) DEFAULT NULL,
+  `statusitem_id` bigint(20) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `instalation_id` bigint(20) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
@@ -197,8 +205,8 @@ CREATE TABLE `storage` (
   `tipestorage_id` bigint(20) DEFAULT NULL,
   `purchase_id` bigint(20) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -256,7 +264,7 @@ ALTER TABLE `client`
 --
 ALTER TABLE `detailitem`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_detailitem_itemstatus_id` (`itemstatus_id`),
+  ADD KEY `FK_detailitem_itemstatus_id` (`statusitem_id`),
   ADD KEY `FK_detailitem_instalation_id` (`instalation_id`);
 
 --
@@ -357,15 +365,75 @@ ALTER TABLE `tipeuser`
 --
 
 --
+-- AUTO_INCREMENT for table `client`
+--
+ALTER TABLE `client`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `detailitem`
+--
+ALTER TABLE `detailitem`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `instalation`
+--
+ALTER TABLE `instalation`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `itemstatus`
+--
+ALTER TABLE `itemstatus`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `statusinstalation`
+--
+ALTER TABLE `statusinstalation`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `statusorders`
+--
+ALTER TABLE `statusorders`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `storage`
 --
 ALTER TABLE `storage`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `support`
+--
+ALTER TABLE `support`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tipeuser`
+--
+ALTER TABLE `tipeuser`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
@@ -377,7 +445,7 @@ ALTER TABLE `storage`
 --
 ALTER TABLE `detailitem`
   ADD CONSTRAINT `FK_detailitem_instalation_id` FOREIGN KEY (`instalation_id`) REFERENCES `instalation` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_detailitem_itemstatus_id` FOREIGN KEY (`itemstatus_id`) REFERENCES `itemstatus` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_detailitem_itemstatus_id` FOREIGN KEY (`statusitem_id`) REFERENCES `itemstatus` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `instalation`
