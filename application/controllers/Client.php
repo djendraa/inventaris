@@ -76,19 +76,20 @@ public function __construct()
         }
     }
 
-    public function daleteClient()
+    public function deleteData()
     {
         $id = $this->uri->segment('3');
-        $delete= $this->CM->deleteData($id);
+        $delete = $this->CM->deleteData($id);
         if($delete > 0){
+            redirect(base_url('client'));
+            
+        }else{
             echo "
             <script>
             alert('Data gagal di hapus!');
             document.location.href = 'index';
             </script>
             ";
-        }else{
-            redirect(base_url('client'));
         }
         
     }

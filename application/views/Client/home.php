@@ -75,10 +75,9 @@
                           </td>
                           <?php include('inc/delete.php') ?>
                           <td>
-                            <a class="fas fa-trash" data-placement="top" title="Delete" data-toggle="modal" data-target="#DeleteModal" id="#DeleteModal<?php echo $d->id ?>" style="text-decoration: none;"></a>
+                            <a class="fas fa-trash" data-placement="top" title="Delete" data-toggle="modal" data-target="#DeleteModal<?php echo $d->id ?>" style="text-decoration: none;"></a>
                           </td>
                         </tr>
-                        
                         
                       <?php endforeach; ?>
                       
