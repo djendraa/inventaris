@@ -54,10 +54,13 @@
                         </tr>
                       </thead>
                       <tbody align="center">
+                      
                       <?php 
                       $no = 1;
                       foreach ($dataClient as $d): ?>
+                      
                       <?php include('inc/add.php') ?>
+                      
                         <tr>
                           <td><?php echo $no++ ?></td>
                           <td><?php echo $d->clientname ?></td>
@@ -66,14 +69,19 @@
                           <td>
                             <a class="fas fa-user-plus" data-placement="top" title="Add" data-toggle="modal" data-target="#AddModal" style="text-decoration: none;"></a>
                           </td>
+                          <?php include('inc/update.php') ?>
                           <td>
-                            <a class="fas fa-edit" href="#" style="text-decoration: none;"></a>
+                            <a class="fas fa-edit" data-placement="top" title="Update" data-toggle="modal" data-target="#UpdateModal<?php echo $d->id ?>" style="text-decoration: none;">></a>
                           </td>
+                          <?php include('inc/delete.php') ?>
                           <td>
-                            <a class="fas fa-trash" href="#" style="text-decoration: none;"></a>
+                            <a class="fas fa-trash" data-placement="top" title="Delete" data-toggle="modal" data-target="#DeleteModal" id="#DeleteModal<?php echo $d->id ?>" style="text-decoration: none;"></a>
                           </td>
                         </tr>
+                        
+                        
                       <?php endforeach; ?>
+                      
                       </tbody>
                     </table>
                   </div>

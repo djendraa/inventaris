@@ -13,6 +13,7 @@ public function __construct()
     public function index()
     {
         $d = $this->CM->getData();
+        // $d1 = $this->CM->select_by_id($id);
         $data = array(
             'dataClient' => $d
         );
@@ -47,6 +48,49 @@ public function __construct()
             </script>
             ";
         }
+    }
+
+    public function updateData()
+    {
+        $id = $this->input->post('clientID');
+        $name = $this->input->post('name');
+        $address = $this->input->post('address');
+        $contact = $this->input->post('contact');
+
+        $data = array(
+            'clientname' => $name,
+            'address' => $address,
+            'contact' => $contact
+        );
+
+        $tambah = $this->CM->updateData($data, $id);
+        if($tambah > 0){
+            redirect(base_url('Client'));
+        } else {
+            echo "
+            <script>
+            alert('Data gagal di update!');
+            document.location.href = 'index';
+            </script>
+            ";
+        }
+    }
+
+    public function daleteClient()
+    {
+        $id = $this->uri->segment('3');
+        $delete= $this->CM->deleteData($id);
+        if($delete > 0){
+            echo "
+            <script>
+            alert('Data gagal di hapus!');
+            document.location.href = 'index';
+            </script>
+            ";
+        }else{
+            redirect(base_url('client'));
+        }
+        
     }
 
 }
