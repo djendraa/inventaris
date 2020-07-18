@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2020 at 09:42 AM
+-- Generation Time: Jul 18, 2020 at 02:17 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -48,22 +48,6 @@ INSERT INTO `client` (`id`, `clientname`, `address`, `contact`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detailitem`
---
-
-CREATE TABLE `detailitem` (
-  `id` bigint(20) NOT NULL,
-  `detailitem` varchar(25) DEFAULT NULL,
-  `statusitem_id` bigint(20) DEFAULT NULL,
-  `qty` int(11) DEFAULT NULL,
-  `instalation_id` bigint(20) DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `instalation`
 --
 
@@ -75,6 +59,8 @@ CREATE TABLE `instalation` (
   `support_id` bigint(20) DEFAULT NULL,
   `storage_id` bigint(20) DEFAULT NULL,
   `statusinstalation_id` bigint(20) DEFAULT NULL,
+  `itemstatus_id` bigint(20) DEFAULT NULL,
+  `qty` int(11) NOT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -83,8 +69,8 @@ CREATE TABLE `instalation` (
 -- Dumping data for table `instalation`
 --
 
-INSERT INTO `instalation` (`id`, `instalation`, `client_id`, `package_id`, `support_id`, `storage_id`, `statusinstalation_id`, `created_at`, `updated_at`) VALUES
-(1, 'Pemasangan Baru', 1, 2, 2, 1, 1, '2020-07-15 14:38:41', NULL);
+INSERT INTO `instalation` (`id`, `instalation`, `client_id`, `package_id`, `support_id`, `storage_id`, `statusinstalation_id`, `itemstatus_id`, `qty`, `created_at`, `updated_at`) VALUES
+(1, 'Pemasangan Baru', 1, 2, 2, 1, 1, 1, 1, '2020-07-15 14:38:41', '2020-07-18 18:57:21');
 
 -- --------------------------------------------------------
 
@@ -369,14 +355,6 @@ ALTER TABLE `client`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `detailitem`
---
-ALTER TABLE `detailitem`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_detailitem_itemstatus_id` (`statusitem_id`),
-  ADD KEY `FK_detailitem_instalation_id` (`instalation_id`);
-
---
 -- Indexes for table `instalation`
 --
 ALTER TABLE `instalation`
@@ -385,7 +363,8 @@ ALTER TABLE `instalation`
   ADD KEY `FK_instalation_support_id` (`support_id`),
   ADD KEY `FK_instalation_storage_id` (`storage_id`),
   ADD KEY `FK_instalation_statusinstalation_id` (`statusinstalation_id`),
-  ADD KEY `FK_instalation_package_id` (`package_id`);
+  ADD KEY `FK_instalation_package_id` (`package_id`),
+  ADD KEY `FK_instalation_itemstatus_id` (`itemstatus_id`);
 
 --
 -- Indexes for table `item`
@@ -480,12 +459,6 @@ ALTER TABLE `client`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `detailitem`
---
-ALTER TABLE `detailitem`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `instalation`
 --
 ALTER TABLE `instalation`
@@ -568,17 +541,11 @@ ALTER TABLE `tipeuser`
 --
 
 --
--- Constraints for table `detailitem`
---
-ALTER TABLE `detailitem`
-  ADD CONSTRAINT `FK_detailitem_instalation_id` FOREIGN KEY (`instalation_id`) REFERENCES `instalation` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_detailitem_itemstatus_id` FOREIGN KEY (`statusitem_id`) REFERENCES `itemstatus` (`id`) ON DELETE CASCADE;
-
---
 -- Constraints for table `instalation`
 --
 ALTER TABLE `instalation`
   ADD CONSTRAINT `FK_instalation_client_id` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_instalation_itemstatus_id` FOREIGN KEY (`itemstatus_id`) REFERENCES `itemstatus` (`id`),
   ADD CONSTRAINT `FK_instalation_package_id` FOREIGN KEY (`package_id`) REFERENCES `package` (`id`),
   ADD CONSTRAINT `FK_instalation_statusinstalation_id` FOREIGN KEY (`statusinstalation_id`) REFERENCES `statusinstalation` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_instalation_storage_id` FOREIGN KEY (`storage_id`) REFERENCES `storage` (`id`) ON DELETE CASCADE,
