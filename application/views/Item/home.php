@@ -47,9 +47,7 @@
                       <thead align="center">
                         <tr>
                           <th>No</th>
-                          <th>Client Name</th>
-                          <th>Address</th>
-                          <th>Contact</th>
+                          <th>Item Name</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -57,16 +55,15 @@
                       
                       <?php 
                       $no = 1;
-                      foreach ($dataClient as $d): ?>
+                      foreach ($dataItem as $d): ?>
                       
                       <?php include('inc/add.php') ?>
                       
                         <tr>
                           <td><?php echo $no++ ?></td>
-                          <td><?php echo $d->clientname ?></td>
-                          <td><?php echo $d->address ?></td>
-                          <td><?php echo $d->contact ?></td>
+                          <td><?php echo $d->item ?></td>
                           <?php include('inc/update.php') ?>
+                          
                           <td>
                             <a class="fas fa-user-plus" data-placement="top" title="Add" data-toggle="modal" data-target="#AddModal" style="text-decoration: none;"></a> &nbsp; &nbsp;
                             <a class="fas fa-edit" data-placement="top" title="Update" data-toggle="modal" data-target="#UpdateModal<?php echo $d->id ?>" style="text-decoration: none;"></a> &nbsp; &nbsp;

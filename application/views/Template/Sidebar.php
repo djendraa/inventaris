@@ -28,6 +28,13 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
+                  <li><a><i class="fa fa-sitemap"></i> Rumah Internet <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url('Client'); ?>">Client</a></li>
+                      <li><a href="<?php echo base_url('Item'); ?>">Item</a></li>
+                      <li><a href="<?php echo base_url('Support'); ?>">Support</a></li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.html">Dashboard</a></li>
