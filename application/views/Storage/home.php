@@ -3,7 +3,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>ITEM LIST</h3>
+                <h3>STORAGE LIST</h3>
               </div>
 
               <div class="title_right">
@@ -48,6 +48,9 @@
                         <tr>
                           <th>No</th>
                           <th>Item Name</th>
+                          <th>Storage Type</th>
+                          <th>Purchase</th>
+                          <th>Qty</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -55,13 +58,16 @@
                       
                       <?php 
                       $no = 1;
-                      foreach ($dataItem as $d): ?>
+                      foreach ($dataStorage as $d): ?>
                       
                       <?php include('inc/add.php') ?>
                       
                         <tr>
                           <td><?php echo $no++ ?></td>
                           <td><?php echo $d->item ?></td>
+                          <td><?php echo $d->tipestorage ?></td>
+                          <td><?php echo $d->purchase ?></td>
+                          <td><?php echo $d->qty ?></td>
                           <?php include('inc/update.php') ?>
                           
                           <td>
