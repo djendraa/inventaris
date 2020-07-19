@@ -32,6 +32,31 @@ public function __construct()
         $this->load->view('Template/footer');
     }
 
+    public function insertData()
+    {
+        $name = $this->input->post('name');
+        $address = $this->input->post('address');
+        $contact = $this->input->post('contact');
+
+        $data = array(
+            'clientname' => $name,
+            'address' => $address,
+            'contact' => $contact
+        );
+
+        $tambah = $this->CM->tambahData($data);
+        if($tambah > 0){
+            redirect(base_url('Client'));
+        } else {
+            echo "
+            <script>
+            alert('Data gagal di tambahkan!');
+            document.location.href = 'Client';
+            </script>
+            ";
+        }
+    }
+
 }
 
 /* End of file Purchase.php */

@@ -53,8 +53,8 @@
                           <th>Item</th>
                           <th>Price</th>
                           <th>Qty</th>
-                          <th>Request</th>
-                          <th>Status Request</th>
+                          <th>Requests</th>
+                          <th>Status Requests</th>
                           <th>Action</th>
                         </tr>
                       </thead>
