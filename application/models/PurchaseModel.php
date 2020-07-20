@@ -21,12 +21,12 @@ class PurchaseModel extends CI_Model {
 
     public function getData()
     {
-        $this->db->select('*');
+        $this->db->select('a.id,a.purchase,a.store,a.price,a.qty,b.orders,c.item,d.requests,e.statusrequests');
         $this->db->from('purchase a');
-        $this->db->join('orders b', 'b.id = a.id');
-        $this->db->join('item c', 'c.id = a.id');
-        $this->db->join('requests d', 'd.id = a.id');
-        $this->db->join('statusrequests e', 'e.id = a.id');
+        $this->db->join('orders b', 'b.id=a.orders_id');
+        $this->db->join('item c', 'c.id=a.item_id');
+        $this->db->join('requests d', 'd.id=a.requests_id');
+        $this->db->join('statusrequests e', 'e.id=a.statusrequests_id');
         $query = $this->db->get();
         return $query->result(); 
     }

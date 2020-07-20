@@ -53,7 +53,7 @@
          <label class="col-form-label col-md-3 col-sm-3 label-align" for="item">Item <span class="required">*</span>
          </label>
 			<div class="col-md-6 col-sm-6 ">
-				<select class="select2_single form-control" tabindex="-1" required="required" id="item" name="sitemtorage">
+				<select class="select2_single form-control" tabindex="-1" required="required" id="item" name="item">
 					<!-- <option></option> -->
                   <?php foreach ($item as $a) :?>
                      <?php if($a->id == $dataPurchase->id){ ?>
@@ -91,10 +91,18 @@
          </label>
 			<div class="col-md-6 col-sm-6 ">
 				<select class="select2_single form-control" tabindex="-1" required="required" id="requests" name="requests">
-					<option></option>
-                  <?php foreach ($requests as $a) :?>
+					<!-- <option></option> -->
+               <?php foreach ($requests as $a) :?>
+                     <?php if($a->id == $dataPurchase->id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->requests ?></option>
+                     <?php }; ?>
                   <?php endforeach ;?>
+
+                  <?php foreach ($requests as $a) :?>
+                     <?php if($a->id != $dataPurchase->id){ ?>
+                     <option value="<?php echo $a->id ?>"><?php echo $a->requests ?></option>
+                     <?php }; ?>
+                  <?php endforeach ;?> 
 				</select>
 				</div>
 		</div>
@@ -104,10 +112,18 @@
          </label>
 			<div class="col-md-6 col-sm-6 ">
 				<select class="select2_single form-control" tabindex="-1" required="required" id="status" name="status">
-					<option></option>
-                  <?php foreach ($statusreq as $a) :?>
+					<!-- <option></option> -->
+               <?php foreach ($statusreq as $a) :?>
+                     <?php if($a->id == $dataPurchase->id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->statusrequests ?></option>
+                     <?php }; ?>
                   <?php endforeach ;?>
+
+                  <?php foreach ($statusreq as $a) :?>
+                     <?php if($a->id != $dataPurchase->id){ ?>
+                     <option value="<?php echo $a->id ?>"><?php echo $a->statusrequests ?></option>
+                     <?php }; ?>
+                  <?php endforeach ;?> 
 				</select>
 				</div>
 		</div>

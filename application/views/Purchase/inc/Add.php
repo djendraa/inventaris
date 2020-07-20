@@ -10,7 +10,7 @@
          </div>
          <div class="modal-body">
    <br />
-   <form action="<?php echo base_url('Storage/insertData'); ?>" method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+   <form action="<?php echo base_url('Purchase/insertData'); ?>" method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
       <div class="item form-group">
          <label class="col-form-label col-md-3 col-sm-3 label-align" for="purchase">Purchase <span class="required">*</span>
@@ -45,7 +45,7 @@
          <label class="col-form-label col-md-3 col-sm-3 label-align" for="item">Item <span class="required">*</span>
          </label>
 			<div class="col-md-6 col-sm-6 ">
-				<select class="select2_single form-control" tabindex="-1" required="required" id="item" name="sitemtorage">
+				<select class="select2_single form-control" tabindex="-1" required="required" id="item" name="item">
 					<option></option>
                   <?php foreach ($item as $a) :?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->item ?></option>
