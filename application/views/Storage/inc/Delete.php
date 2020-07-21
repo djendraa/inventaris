@@ -8,7 +8,7 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Are you sure to delete this item, <?php echo $d->item?>?</div>
+        <div class="modal-body">Are you sure to delete this Storage, <?php echo $d->tipestorage ?> <?php echo $d->item?>?</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="<?php echo base_url('Item/deleteData/'.$d->id);?>">Delete</a>

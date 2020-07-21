@@ -38,10 +38,10 @@ public function __construct()
         $qty = $this->input->post('qty');
 
 
-        $data = array(
-            'id' => $item,
-            'id' => $storage,
-            'id' => $purchase,
+        $data = array( 
+            'item_id' => $item,
+            'storage_id' => $storage,
+            'purchase_id' => $purchase,
             'qty' => $qty
         );
 
@@ -52,7 +52,7 @@ public function __construct()
             echo "
             <script>
             alert('Data gagal di tambahkan!');
-            document.location.href = 'Item';
+            document.location.href = 'Storage';
             </script>
             ";
         }
@@ -60,21 +60,29 @@ public function __construct()
 
     public function updateData()
     {
-        $id = $this->input->post('itemID');
+        $id = $this->input->post('storageID');
         $item = $this->input->post('item');
+        $storage = $this->input->post('storage');
+        $purchase = $this->input->post('purchase');
+        $qty = $this->input->post('qty');
 
-        $data = array(
-            'item' => $item
+
+        $data = array( 
+            'item_id' => $item,
+            'storage_id' => $storage,
+            'purchase_id' => $purchase,
+            'qty' => $qty
         );
 
-        $tambah = $this->IM->updateData($data, $id);
+
+        $tambah = $this->SM->updateData($data, $id);
         if($tambah > 0){
-            redirect(base_url('item'));
+            redirect(base_url('Storage'));
         } else {
             echo "
             <script>
             alert('Data gagal di update!');
-            document.location.href = 'index';
+            document.location.href = 'Storage';
             </script>
             ";
         }
@@ -83,15 +91,15 @@ public function __construct()
     public function deleteData()
     {
         $id = $this->uri->segment('3');
-        $delete = $this->IM->deleteData($id);
+        $delete = $this->SM->deleteData($id);
         if($delete > 0){
-            redirect(base_url('item'));
+            redirect(base_url('Storage'));
             
         }else{
             echo "
             <script>
             alert('Data gagal di hapus!');
-            document.location.href = 'index';
+            document.location.href = 'Storage';
             </script>
             ";
         }

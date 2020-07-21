@@ -39,7 +39,7 @@
 		</div>
 
       <div class="item form-group">
-         <label class="col-form-label col-md-3 col-sm-3 label-align" for="item">Purchase <span class="required">*</span>
+         <label class="col-form-label col-md-3 col-sm-3 label-align" for="purchase">Purchase <span class="required">*</span>
          </label>
 			<div class="col-md-6 col-sm-6 ">
 				<select class="select2_single form-control" tabindex="-1" required="required" id="purchase" name="purchase">
@@ -52,10 +52,10 @@
 		</div>
 
       <div class="item form-group">
-         <label class="col-form-label col-md-3 col-sm-3 label-align" for="item">Qty <span class="required">*</span>
+         <label class="col-form-label col-md-3 col-sm-3 label-align" for="qty">Qty <span class="required">*</span>
          </label>
          <div class="col-md-6 col-sm-6 ">
-            <input type="text" id="item" name="item" required="required" class="form-control" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32) || (event.charCode >= 48 && event.charCode <= 57))">
+            <input type="text" id="qty" name="qty" required="required" class="form-control" onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32) || (event.charCode >= 48 && event.charCode <= 57))">
          </div>
       </div>
 

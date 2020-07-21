@@ -17,11 +17,11 @@ class StorageModel extends CI_Model {
 
     public function getData()
     {
-        $this->db->select('*');
+        $this->db->select('a.id,a.qty,b.item,c.tipestorage,d.purchase');
         $this->db->from('storage a');
-        $this->db->join('item b', 'b.id = a.id');
-        $this->db->join('tipestorage c', 'c.id = a.id');
-        $this->db->join('purchase d', 'd.id = a.id');
+        $this->db->join('item b', 'b.id = a.item_id');
+        $this->db->join('tipestorage c', 'c.id = a.tipestorage_id');
+        $this->db->join('purchase d', 'd.id = a.purchase_id');
         $query = $this->db->get();
         return $query->result(); 
     }
