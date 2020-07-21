@@ -10,7 +10,7 @@
          </div>
          <div class="modal-body">
    <br />
-   <form action="<?php echo base_url('Item/updateData'); ?>" method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+   <form action="<?php echo base_url('Storage/updateData'); ?>" method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
       <div class="item form-group">
          <label class="col-form-label col-md-3 col-sm-3 label-align" for="item">Item Name <span class="required">*</span>

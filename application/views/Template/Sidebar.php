@@ -34,6 +34,7 @@
                       <li><a href="<?php echo base_url('Item'); ?>">Item</a></li>
                       <li><a href="<?php echo base_url('Storage'); ?>">Storage</a></li>
                       <li><a href="<?php echo base_url('Purchase'); ?>">Purchase</a></li>
+                      <li><a href="<?php echo base_url('Requests'); ?>">Requests</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
