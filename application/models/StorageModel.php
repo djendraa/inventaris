@@ -17,7 +17,7 @@ class StorageModel extends CI_Model {
 
     public function getData()
     {
-        $this->db->select('a.id,a.qty,b.item,c.tipestorage,d.purchase');
+        $this->db->select('a.id,a.item_id,a.tipestorage_id,a.purchase_id,a.qty,b.item,c.tipestorage,d.purchase');
         $this->db->from('storage a');
         $this->db->join('item b', 'b.id = a.item_id');
         $this->db->join('tipestorage c', 'c.id = a.tipestorage_id');

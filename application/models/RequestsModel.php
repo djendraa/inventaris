@@ -13,7 +13,7 @@ class RequestsModel extends CI_Model {
 
     public function getData()
     {
-        $this->db->select('a.id,a.requests,a.qty,b.item,c.support');
+        $this->db->select('a.id,a.item_id,a.support_id,a.requests,a.qty,b.item,c.support');
         $this->db->from('requests a');
         $this->db->join('item b', 'b.id=a.item_id');
         $this->db->join('support c', 'c.id=a.support_id');

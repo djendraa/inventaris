@@ -27,13 +27,13 @@
 				<select class="select2_single form-control" tabindex="-1" required="required" id="item" name="item">
 					<!-- <option></option> -->
                   <?php foreach ($item as $a) :?>
-                     <?php if($a->id == $dataRequests->id){ ?>
+                     <?php if($a->id == $d->item_id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->item ?></option>
                      <?php }; ?>
                   <?php endforeach ;?>
 
                   <?php foreach ($item as $a) :?>
-                     <?php if($a->id != $dataRequests->id){ ?>
+                     <?php if($a->id != $d->item_id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->item ?></option>
                      <?php }; ?>
                   <?php endforeach ;?> 
@@ -56,13 +56,13 @@
 				<select class="select2_single form-control" tabindex="-1" required="required" id="support" name="support">
 					<!-- <option></option> -->
                   <?php foreach ($support as $a) :?>
-                     <?php if($a->id == $dataRequests->id){ ?>
+                     <?php if($a->id == $d->support_id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->support ?></option>
                      <?php }; ?>
                   <?php endforeach ;?>
 
                   <?php foreach ($support as $a) :?>
-                     <?php if($a->id != $dataRequests->id){ ?>
+                     <?php if($a->id != $d->support_id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->support ?></option>
                      <?php }; ?>
                   <?php endforeach ;?> 

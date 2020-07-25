@@ -19,13 +19,13 @@
 				<select class="select2_single form-control" tabindex="-1" required="required" id="item" name="item">
 					<!-- <option></option> -->
                   <?php foreach ($item as $a) :?>
-                     <?php if($a->id == $dataStorage->id){ ?>
+                     <?php if($a->id == $d->item_id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->item ?></option>
                      <?php }; ?>
                   <?php endforeach ;?>
 
                   <?php foreach ($item as $a) :?>
-                     <?php if($a->id != $dataStorage->id){ ?>
+                     <?php if($a->id != $d->item_id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->item ?></option>
                      <?php }; ?>
                   <?php endforeach ;?>    
@@ -40,13 +40,13 @@
 				<select class="select2_single form-control" tabindex="-1" required="required" id="storage" name="storage">
 					<!-- <option></option> -->
                   <?php foreach ($tipestorage as $a) :?>
-                     <?php if($a->id == $dataStorage->id){ ?>
+                     <?php if($a->id == $d->tipestorage_id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->tipestorage ?></option>
                      <?php }; ?>
                   <?php endforeach ;?>
 
                   <?php foreach ($tipestorage as $a) :?>
-                     <?php if($a->id != $dataStorage->id){ ?>
+                     <?php if($a->id != $d->storage_id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->tipestorage ?></option>
                      <?php }; ?>
                   <?php endforeach ;?>    
@@ -61,13 +61,13 @@
 				<select class="select2_single form-control" tabindex="-1" required="required" id="purchase" name="purchase">
 					<!-- <option></option> -->
                <?php foreach ($purchase as $a) :?>
-                     <?php if($a->id == $dataStorage->id){ ?>
+                     <?php if($a->id == $d->purchase_id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->purchase ?></option>
                      <?php }; ?>
                   <?php endforeach ;?>
 
                   <?php foreach ($purchase as $a) :?>
-                     <?php if($a->id != $dataStorage->id){ ?>
+                     <?php if($a->id != $d->purchase_id){ ?>
                      <option value="<?php echo $a->id ?>"><?php echo $a->purchase ?></option>
                      <?php }; ?>
                   <?php endforeach ;?> 
