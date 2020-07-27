@@ -69,7 +69,7 @@
                         <tr>
                           <td><?php echo $no++ ?></td>
                           <td><?php echo $d->instalation ?></td>
-                          <td><?php echo $d->client ?></td>
+                          <td><?php echo $d->clientname ?></td>
                           <td><?php echo $d->package ?></td>
                           <td><?php echo $d->support ?></td>
                           <td><?php echo $d->storage ?></td>

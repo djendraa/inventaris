@@ -29,7 +29,7 @@ class InstalationModel extends CI_Model {
 
     public function getData() 
     {
-        $this->db->select('a.id,a.qty,b.clientname,c.package,d.support');
+        $this->db->select('a.id,a.instalation,a.qty,a.client_id,a.package_id,a.support_id,a.storage_id,a.statusinstalation_id,a.itemstatus_id,b.clientname,c.package,d.support,e.storage,f.statusinstalation,g.itemstatus');
         $this->db->from('instalation a');
         $this->db->join('client b', 'b.id = a.client_id');
         $this->db->join('package c', 'c.id = a.package_id');

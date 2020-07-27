@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2020 at 02:17 PM
+-- Generation Time: Jul 27, 2020 at 05:37 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -70,7 +70,7 @@ CREATE TABLE `instalation` (
 --
 
 INSERT INTO `instalation` (`id`, `instalation`, `client_id`, `package_id`, `support_id`, `storage_id`, `statusinstalation_id`, `itemstatus_id`, `qty`, `created_at`, `updated_at`) VALUES
-(1, 'Pemasangan Baru', 1, 2, 2, 1, 1, 1, 1, '2020-07-15 14:38:41', '2020-07-18 18:57:21');
+(1, 'Pemasangan', 1, 2, 2, 1, 1, 1, 1, '2020-07-15 14:38:41', '2020-07-27 10:11:19');
 
 -- --------------------------------------------------------
 
@@ -186,7 +186,7 @@ CREATE TABLE `purchase` (
 --
 
 INSERT INTO `purchase` (`id`, `purchase`, `orders_id`, `store`, `item_id`, `price`, `qty`, `requests_id`, `statusrequests_id`, `created_at`, `updated_at`) VALUES
-(1, 'Pembelian Totolink N100RE', 1, 'https://www.tokopedia.com/rekomendasi/995378250?ref=googleshopping&c=8258912147&m=242568522&p=995378250&gclid=Cj0KCQjw0rr4BRCtARIsAB0_48OmOZuJRVzZn_w1T2nPz6a2o5RlfKXllp6yPu-qXqD04z3xxC-6e9UaAhprEALw_w', 3, 150000, 10, 1, 1, '2020-07-15 14:28:05', NULL);
+(1, 'Pembelian Totolink N100RE', 1, 'https://www.tokopedia.com', 3, 150000, 10, 1, 1, '2020-07-15 14:28:05', '2020-07-22 10:43:15');
 
 -- --------------------------------------------------------
 
@@ -264,6 +264,7 @@ INSERT INTO `statusrequests` (`id`, `statusrequests`, `created_at`, `updated_at`
 
 CREATE TABLE `storage` (
   `id` bigint(20) NOT NULL,
+  `storage` varchar(30) NOT NULL,
   `item_id` bigint(20) DEFAULT NULL,
   `tipestorage_id` bigint(20) DEFAULT NULL,
   `purchase_id` bigint(20) DEFAULT NULL,
@@ -276,8 +277,8 @@ CREATE TABLE `storage` (
 -- Dumping data for table `storage`
 --
 
-INSERT INTO `storage` (`id`, `item_id`, `tipestorage_id`, `purchase_id`, `qty`, `created_at`, `updated_at`) VALUES
-(1, 3, 1, 1, 10, '2020-07-15 14:35:15', NULL);
+INSERT INTO `storage` (`id`, `storage`, `item_id`, `tipestorage_id`, `purchase_id`, `qty`, `created_at`, `updated_at`) VALUES
+(1, 'Stok Totolink-N100RE', 3, 1, 1, 10, '2020-07-15 14:35:15', '2020-07-27 10:09:05');
 
 -- --------------------------------------------------------
 
